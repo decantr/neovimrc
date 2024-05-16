@@ -46,11 +46,7 @@ return {
           require("telescope.actions").close(prompt_bufnr)
           for _, j in pairs(multi) do
             if j.path ~= nil then
-              if j.lnum ~= nil then
-                vim.cmd(string.format("%s %s:%s", "edit", j.path, j.lnum))
-              else
-                vim.cmd(string.format("%s %s", "edit", j.path))
-              end
+              vim.cmd(string.format("%s %s", "tabnew", j.path))
             end
           end
         else
@@ -77,6 +73,7 @@ return {
           end,
           mappings = {
             i = {
+              ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
               ["<CR>"] = select_one_or_multi,
               ["<d-t>"] = open_with_trouble,
               ["<c-t>"] = open_selected_with_trouble,
@@ -89,6 +86,7 @@ return {
             },
             n = {
               ["q"] = actions.close,
+              ["<CR>"] = select_one_or_multi,
             },
           },
         },
