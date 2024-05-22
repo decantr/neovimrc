@@ -1,6 +1,21 @@
 return {
+	{ 'folke/lazy.nvim', version = false },
+	-- Configure LazyVim to load gruvbox
 	{
-		"neovim/nvim-lspconfig",
+		'LazyVim/LazyVim',
+		version = false,
+		opts = {
+			colorscheme = 'alabaster'
+			-- colorscheme = function ()
+			-- 	if vim.g.neovide then
+			-- 		return 'alabaster'
+			-- 	end
+			-- 	return 'default'
+			-- end,
+		},
+	},
+	{
+		'neovim/nvim-lspconfig',
 		---@class PluginLspOpts
 		opts = {
 			---@type lspconfig.options
@@ -12,19 +27,19 @@ return {
 						css = {
 							validate = true,
 							lint = {
-								unknownAtRules = "ignore"
+								unknownAtRules = 'ignore'
 							}
 						},
 						scss = {
 							validate = true,
 							lint = {
-								unknownAtRules = "ignore"
+								unknownAtRules = 'ignore'
 							}
 						},
 						less = {
 							validate = true,
 							lint = {
-								unknownAtRules = "ignore"
+								unknownAtRules = 'ignore'
 							}
 						},
 					},
@@ -34,21 +49,3 @@ return {
 		},
 	},
 }
---return {
---	{
---		"LazyVim/LazyVim",
---		opts = {
---			colorscheme = function()
---				-- don't use termguicolors on Apple Terminal
---				local opt = vim.opt
---
---				if os.getenv("TERM_PROGRAM") == "Apple_Terminal" then
---					opt.termguicolors = false
---					return "default"
---				end
---
---				return "tokyonight"
---			end,
---		},
---	},
---}
