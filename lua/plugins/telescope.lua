@@ -46,7 +46,7 @@ return {
 					require("telescope.actions").close(prompt_bufnr)
 					for _, j in pairs(multi) do
 						if j.path ~= nil then
-							vim.cmd(string.format("%s %s", "tabnew", j.path))
+							vim.cmd(string.format("%s %s", "edit", j.path))
 						end
 					end
 				else
