@@ -24,6 +24,7 @@ return {
 		---@diagnostic disable-next-line: missing-fields
 		opts = {
 			highlight = { enable = true },
+    		-- Needed because treesitter highlight turns off autoindent for php files
 			indent = { enable = true },
 			ensure_installed = {
 				"bash",
@@ -92,6 +93,8 @@ return {
 					branch = "main",
 				},
 				filetype = "blade",
+				generate_requires_npm = true,
+				requires_generate_from_grammar = true,
 			}
 
 			vim.filetype.add({

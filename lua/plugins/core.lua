@@ -5,7 +5,7 @@ return {
 		'LazyVim/LazyVim',
 		version = false,
 		opts = {
-			colorscheme = 'alabaster'
+			-- colorscheme = 'alabaster'
 			-- colorscheme = function ()
 			-- 	if vim.g.neovide then
 			-- 		return 'alabaster'
@@ -21,7 +21,11 @@ return {
 			---@type lspconfig.options
 			servers = {
 				-- intelephense will be automatically installed with mason and loaded with lspconfig
-				intelephense = {},
+				intelephense = {
+					files = {
+						maxSize = 1000000000,
+					}
+				},
 				cssls = {
 					settings = {
 						css = {

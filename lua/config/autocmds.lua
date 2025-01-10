@@ -8,3 +8,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		vim.b.autoformat = false
 	end,
 })
+
+-- make $ part of the keyword for php.
+vim.api.nvim_exec(
+  [[
+autocmd FileType php set iskeyword+=$
+]],
+  false
+)
